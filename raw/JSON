@@ -1,0 +1,40 @@
+{
+	"version": 2017060900,
+	"schedules": [
+		{
+			"version": 2017040400,
+			"url": "https://www.opensouthcode.org/conferences/opensouthcode2017/schedule.xml",
+			"title": "Opensouthcode 2017",
+			"start": "2017-05-05",
+			"end": "2017-05-06",
+			"metadata": {
+				"links": [
+					{
+						"url": "https://www.opensouthcode.org/",
+						"title": "Website"
+					}
+				],
+				"icon": "https://www.opensouthcode.org/logo.png"
+			}
+		},
+		{
+			"version": 2017060900,
+			"url": "http://www.tuebix.org/2017/giggity.xml",
+			"title": "TUEBIX 2017",
+			"start": "2017-06-24",
+			"end": "2017-06-24",
+			"metadata": {
+				"links": [
+					{
+						"url": "http://www.tuebix.org/",
+						"title": "Website"
+					},
+					{
+						"url": "http://www.tuebix.org/anfahrt/",
+						"title": "Anfahrt"
+					}
+				]
+			}
+		}
+	]
+}
