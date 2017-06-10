@@ -1,16 +1,16 @@
 /*
  * Giggity -- Android app to view conference/festival schedules
  * Copyright 2008-2011 Wilmer van der Gaast <wilmer@gaast.net>
- *
+ * 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of version 2 of the GNU General Public
  * License as published by the Free Software Foundation.
- *
+ * 
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- *
+ * 
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
@@ -20,11 +20,13 @@
 package net.gaast.giggity;
 
 import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.Html;
-import android.text.Spanned;
+import android.text.Spannable;
 import android.util.Log;
 import android.util.Xml;
 import android.widget.CheckBox;
@@ -42,6 +44,7 @@ import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -49,16 +52,21 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.Format;
 import java.text.ParseException;
+import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.AbstractList;
 import java.util.AbstractSet;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Locale;
 import java.util.Scanner;
+import java.util.TimeZone;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.zip.DataFormatException;
@@ -81,12 +89,14 @@ public class Schedule {
     private Date dayChange;
     private boolean showHidden;  // So hidden items are shown but with a different colour.
 
+    private HashSet<String> languages;
+
     /* Misc. data not in the schedule file but from Giggity's menu.json. Though it'd certainly be
      * nice if some file formats could start supplying this info themselves. */
     private String icon;
     private LinkedList<Link> links;
 
-    /* For fetching the icon file in the background. Not yet used/done. */
+    /* For fetching the icon file in the background. */
     private Thread iconFetcher;
 
     private boolean fullyLoaded;
@@ -113,7 +123,7 @@ public class Schedule {
 
     @Deprecated
     static String rewrap(String desc) {
-		/* Replace newlines with spaces unless there are two of them,
+        /* Replace newlines with spaces unless there are two of them,
 		 * or if the following line starts with a character. */
         if (desc != null)
             return desc.replace("\r", "").replaceAll("([^\n]) *\n *([a-zA-Z0-9])", "$1 $2");
@@ -246,6 +256,7 @@ public class Schedule {
         allItems = new TreeMap<String, Schedule.Item>();
         tents = new LinkedList<Schedule.Line>();
         trackMap = null; /* Only assign if we have track info. */
+        languages = new HashSet<>();
 
         firstTime = null;
         lastTime = null;
@@ -271,7 +282,7 @@ public class Schedule {
             f.setProgressHandler(progressHandler);
             in = f.getReader();
             char[] headc = new char[detectHeaderSize];
-
+			
 			/* Read the first KByte (but keep it buffered) to try to detect the format. */
             in.mark(detectHeaderSize);
             in.read(headc, 0, detectHeaderSize);
@@ -310,6 +321,8 @@ public class Schedule {
             throw e;
         }
 
+        Log.d("load", "Schedule has " + languages.size() + " languages");
+
         f.keep();
 
         if (title == null)
@@ -336,7 +349,6 @@ public class Schedule {
         fullyLoaded = true;
     }
 
-
     private void loadDeox(BufferedReader in) {
         loadXml(in, new DeoxParser());
     }
@@ -357,6 +369,59 @@ public class Schedule {
             Log.e("Schedule.loadXml", "XML parse exception: " + e);
             e.printStackTrace();
             throw new LoadException("XML parsing problem: " + e);
+        }
+    }
+
+    private void loadIcal(BufferedReader in) {
+		/* Luckily the structure of iCal maps pretty well to its xCal counterpart.
+		 * That's what this function does.
+		 * Tested against http://yapceurope.lv/ye2011/timetable.ics and the FOSDEM
+		 * 2011 iCal export (but please don't use this unless the event offers
+		 * nothing else). */
+        XcalParser p = new XcalParser();
+        String line, s;
+        try {
+            line = "";
+            while (true) {
+                s = in.readLine();
+                if (s != null && s.startsWith(" ")) {
+                    line += s.substring(1);
+					/* Line continuation. Get the rest before we process anything. */
+                    continue;
+                } else if (line.contains(":")) {
+                    String split[] = line.split(":", 2);
+                    String key, value;
+                    key = split[0].toLowerCase();
+                    value = split[1];
+                    if (key.equals("begin")) {
+						/* Some blocks (including vevent, the only one we need)
+						 * have proper begin:vevent and end:vevent dividers. */
+                        p.startElement("", value.toLowerCase(), "", null);
+                    } else if (key.equals("end")) {
+                        p.endElement("", value.toLowerCase(), "");
+                    } else {
+						/* Chop off attributes. Could pass them but not reading them anyway. */
+                        if (key.contains(";"))
+                            key = key.substring(0, key.indexOf(";"));
+                        value = value.replace("\\n", "\n").replace("\\,", ",")
+                                .replace("\\;", ";").replace("\\\\", "\\");
+						/* Fake <key>value</key> */
+                        p.startElement("", key, "", null);
+                        p.characters(value.toCharArray(), 0, value.length());
+                        p.endElement("", key, "");
+                    }
+                }
+                if (s != null)
+                    line = s;
+                else
+                    break;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new LoadException("Read error: " + e);
+        } catch (SAXException e) {
+            e.printStackTrace();
+            throw new LoadException("Parse error: " + e);
         }
     }
 
@@ -421,61 +486,6 @@ public class Schedule {
         return calender.getTimeInMillis();
     }
 
-
-    private void loadIcal(BufferedReader in) {
-		/* Luckily the structure of iCal maps pretty well to its xCal counterpart.
-		 * That's what this function does.
-		 * Tested against http://yapceurope.lv/ye2011/timetable.ics and the FOSDEM
-		 * 2011 iCal export (but please don't use this unless the event offers
-		 * nothing else). */
-        XcalParser p = new XcalParser();
-        String line, s;
-        try {
-            line = "";
-            while (true) {
-                s = in.readLine();
-                if (s != null && s.startsWith(" ")) {
-                    line += s.substring(1);
-					/* Line continuation. Get the rest before we process anything. */
-                    continue;
-                } else if (line.contains(":")) {
-                    String split[] = line.split(":", 2);
-                    String key, value;
-                    key = split[0].toLowerCase();
-                    value = split[1];
-                    if (key.equals("begin")) {
-						/* Some blocks (including vevent, the only one we need)
-						 * have proper begin:vevent and end:vevent dividers. */
-                        p.startElement("", value.toLowerCase(), "", null);
-                    } else if (key.equals("end")) {
-                        p.endElement("", value.toLowerCase(), "");
-                    } else {
-						/* Chop off attributes. Could pass them but not reading them anyway. */
-                        if (key.contains(";"))
-                            key = key.substring(0, key.indexOf(";"));
-                        value = value.replace("\\n", "\n").replace("\\,", ",")
-                                .replace("\\;", ";").replace("\\\\", "\\");
-						/* Fake <key>value</key> */
-                        p.startElement("", key, "", null);
-                        p.characters(value.toCharArray(), 0, value.length());
-                        p.endElement("", key, "");
-                    }
-                }
-                if (s != null)
-                    line = s;
-                else
-                    break;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new LoadException("Read error: " + e);
-        } catch (SAXException e) {
-            e.printStackTrace();
-            throw new LoadException("Parse error: " + e);
-        }
-    }
-
-
     /**
      * OOB metadata related to schedule but separately supplied by BitlBee (it's non-standard) gets merged here.
      * I should see whether I could get support for this kind of data into the Pentabarf format.
@@ -503,18 +513,32 @@ public class Schedule {
                 JSONArray roomlist = md.getJSONArray("rooms");
                 for (int i = 0; i < roomlist.length(); ++i) {
                     JSONObject jroom = roomlist.getJSONObject(i);
+                    Log.d("jroom", jroom.toString());
                     for (Line room : getTents()) {
+                        if (room.location != null) {
+                            // Guess I could allow overlapping regexes starting with more specific
+                            // ones. So if we've already assigned a location w/ a previous regex,
+                            // skip this room.
+                            continue;
+                        }
                         // Using regex matching here to be a little more fuzzy. Also, possibly rooms
                         // that are close to each other (and may have similar names) can just share
                         // one entry.
                         if (!room.getTitle().matches(jroom.getString("name"))) {
                             continue;
                         }
+                        String name;
+                        if (jroom.has("show_name")) {
+                            name = jroom.getString("show_name") + " (" + room.getTitle() + ")";
+                        } else {
+                            name = room.getTitle();
+                        }
                         JSONArray latlon = jroom.getJSONArray("latlon");
                         try {
                             room.location = ("geo:0,0?q=" + latlon.optDouble(0, 0) + "," +
                                     latlon.optDouble(1, 0) + "(" +
-                                    URLEncoder.encode(room.getTitle(), "utf-8") + ")");
+                                    URLEncoder.encode(name, "utf-8") + ")");
+                            Log.d("room:", room.getTitle() + " " + room.location);
                         } catch (UnsupportedEncodingException e) {
                             // I'm a useless language! (Have I mentioned yet how if a machine
                             // doesn't do utf-8 then it should maybe not be on the Internet?)
@@ -599,6 +623,16 @@ public class Schedule {
         return ret;
     }
 
+    public ArrayList<Item> getByLanguage(String language) {
+        ArrayList<Item> ret = new ArrayList<>();
+        for (Item item : allItems.values()) {
+            if (item.getLanguage() != null && item.getLanguage().equals(language)) {
+                ret.add(item);
+            }
+        }
+        return ret;
+    }
+
     public AbstractList<Item> searchItems(String q_) {
 		/* No, sorry, this is no full text search. It's ugly and amateuristic,
 		 * but hopefully sufficient. Full text search would probably require
@@ -632,12 +666,12 @@ public class Schedule {
         return ret;
     }
 
-    public String getIcon() {
-        return icon;
-    }
-
     public LinkedList<Link> getLinks() {
         return links;
+    }
+
+    public Collection<String> getLanguages() {
+        return languages;
     }
 
     public boolean getShowHidden() {
@@ -648,14 +682,18 @@ public class Schedule {
         this.showHidden = showHidden;
     }
 
-    public Drawable getIconDrawable() {
-        if (getIcon() == null || getIcon().isEmpty()) {
+    public String getIconUrl() {
+        return icon;
+    }
+
+    private InputStream getIconStream() {
+        if (getIconUrl() == null || getIconUrl().isEmpty()) {
             return null;
         }
 
         try {
-            Fetcher f = new Fetcher(app, getIcon(), Fetcher.Source.CACHE);
-            return getIconDrawable(f);
+            Fetcher f = new Fetcher(app, getIconUrl(), Fetcher.Source.CACHE);
+            return f.getStream();
         } catch (IOException e) {
             // This probably means it's not in cache. :-( So we'll fetch it in the background and
             // will hopefully succeed on the next call.
@@ -665,12 +703,13 @@ public class Schedule {
             public void run() {
                 Fetcher f;
                 try {
-                    f = new Fetcher(app, getIcon(), Fetcher.Source.ONLINE);
+                    f = new Fetcher(app, getIconUrl(), Fetcher.Source.ONLINE);
                 } catch (IOException e) {
                     Log.e("getIconDrawable", "Fetch error: " + e);
                     return;
                 }
-                if (getIconDrawable(f) != null) {
+                if (Drawable.createFromStream(f.getStream(), "") != null) {
+					/* Throw-away decode seems to have worked so instruct Fetcher to keep cached. */
                     f.keep();
                 }
             }
@@ -679,8 +718,22 @@ public class Schedule {
         return null;
     }
 
-    private Drawable getIconDrawable(Fetcher f) {
-        return Drawable.createFromStream(f.getStream(), getIcon());
+    public Drawable getIconDrawable() {
+        InputStream stream = getIconStream();
+        if (stream != null) {
+            return Drawable.createFromStream(stream, getIconUrl());
+        } else {
+            return null;
+        }
+    }
+
+    public Bitmap getIconBitmap() {
+        InputStream stream = getIconStream();
+        if (stream != null) {
+            return BitmapFactory.decodeStream(stream);
+        } else {
+            return null;
+        }
     }
 
     public Selections getSelections() {
@@ -978,17 +1031,26 @@ public class Schedule {
     }
 
     private class XcalParser implements ContentHandler {
-        SimpleDateFormat df;
-        //private Schedule.Line curTent;
+        SimpleDateFormat dfUtc, dfLocal;
         private HashMap<String, Schedule.Line> tentMap;
         private HashMap<String, String> eventData;
         private String curString;
 
-
         public XcalParser() {
             tentMap = new HashMap<String, Schedule.Line>();
-            df = new SimpleDateFormat("yyyyMMdd'T'HHmmss");
-            //df.setTimeZone(TimeZone.getTimeZone("UTC"));
+            dfUtc = new SimpleDateFormat("yyyyMMdd'T'HHmmss'Z'");
+            dfUtc.setTimeZone(TimeZone.getTimeZone("UTC"));
+            dfLocal = new SimpleDateFormat("yyyyMMdd'T'HHmmss");
+        }
+
+        private Date parseTime(String s) throws ParseException {
+            Date ret;
+            if ((ret = dfUtc.parse(s, new ParsePosition(0))) != null) {
+                return ret;
+            } else if ((ret = dfLocal.parse(s, new ParsePosition(0))) != null) {
+                return ret;
+            }
+            throw new ParseException("Unparseable date: " + s, 0);
         }
 
         @Override
@@ -1024,8 +1086,8 @@ public class Schedule {
                 }
 
                 try {
-                    startTime = df.parse(startTimeS);
-                    endTime = df.parse(endTimeS);
+                    startTime = parseTime(startTimeS);
+                    endTime = parseTime(endTimeS);
                 } catch (ParseException e) {
                     Log.w("Schedule.loadXcal", "Can't parse date: " + e);
                     return;
@@ -1221,7 +1283,8 @@ public class Schedule {
                 desc = "";
                 // TODO: IMHO the separation between these two is not used in a meaningful way my most,
                 // or worse, description is just a copy of abstract. Some heuristics would be helpful.
-                if ((s = propMap.get("abstract")) != null) {
+                if ((s = propMap.get("abstract")) != null &&
+                        !Giggity.fuzzyStarsWith(propMap.get("abstract"), propMap.get("description"))) {
                     s = s.replaceAll("\n*$", "");
                     desc += s + "\n\n";
                 }
@@ -1237,6 +1300,12 @@ public class Schedule {
                     item.addLink(i);
                 for (String i : persons)
                     item.addSpeaker(i);
+
+                String lang = propMap.get("language");
+                if (lang != null && !lang.isEmpty()) {
+                    Locale loc = new Locale(lang);
+                    item.setLanguage(loc.getDisplayLanguage());
+                }
 
                 curTent.addItem(item);
                 propMap = null;
@@ -1321,6 +1390,10 @@ public class Schedule {
                 firstTime = item.getStartTime();
             if (lastTime == null || item.getEndTime().after(lastTime))
                 lastTime = item.getEndTime();
+
+            if (item.getLanguage() != null) {
+                languages.add(item.getLanguage());
+            }
         }
 
         public AbstractSet<Schedule.Item> getItems() {
@@ -1353,6 +1426,7 @@ public class Schedule {
         private Date startTime, endTime;
         private LinkedList<Schedule.Link> links;
         private LinkedList<String> speakers;
+        private String language;
 
         private boolean remind;
         private boolean hidden;
@@ -1458,6 +1532,18 @@ public class Schedule {
             return ret;
         }
 
+        public String getLanguage() {
+            return language;
+        }
+
+        public void setLanguage(String lang) {
+            if (lang != null && !lang.isEmpty()) {
+                language = lang;
+            } else {
+                language = null;
+            }
+        }
+
         private String descriptionMarkdownHack(String md) {
             String ret = md;
             ret = ret.replaceAll("(?m)^#### (.*)$", "<h4>$1</h4>");
@@ -1471,7 +1557,7 @@ public class Schedule {
             return ret;
         }
 
-        public Spanned getDescriptionSpannable() {
+        public Spannable getDescriptionSpannable() {
             String html;
             if (description.startsWith("<") || description.contains("<p>")) {
                 html = description;
@@ -1495,7 +1581,9 @@ public class Schedule {
                     }
                 }
             };
-            Spanned formatted = Html.fromHtml(html, null, th);
+            Spannable formatted = (Spannable) Html.fromHtml(html, null, th);
+            // TODO: This, too, ruins existing links. WTF guys.. :<
+            // Linkify.addLinks(formatted, Linkify.WEB_URLS | Linkify.EMAIL_ADDRESSES);
             return formatted;
         }
 
@@ -1624,7 +1712,4 @@ public class Schedule {
             this.type = type;
         }
     }
-
-
 }
-
