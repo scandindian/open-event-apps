@@ -138,7 +138,7 @@ public class Schedule {
             day.set(Calendar.HOUR_OF_DAY, dayChange.getHours());
             day.set(Calendar.MINUTE, dayChange.getMinutes());
             /* Add a day 0 (maybe there's an event before the first day officially
-			 * starts?). Saw this in the CCC Fahrplan for example. */
+             * starts?). Saw this in the CCC Fahrplan for example. */
             if (day.getTime().after(firstTime))
                 day.add(Calendar.DATE, -1);
 
@@ -486,7 +486,7 @@ public class Schedule {
         if (Time[2].contains("+")) {
             Time[2] = Time[2].substring(0, Time[2].indexOf('+'));
         }
-        
+
         int year = Integer.parseInt(Date[0]);
         int month = Integer.parseInt(Date[1]);
         int date = Integer.parseInt(Date[2]);
