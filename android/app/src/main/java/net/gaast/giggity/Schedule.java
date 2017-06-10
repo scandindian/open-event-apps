@@ -137,7 +137,7 @@ public class Schedule {
             day.setTime(firstTime);
             day.set(Calendar.HOUR_OF_DAY, dayChange.getHours());
             day.set(Calendar.MINUTE, dayChange.getMinutes());
-			/* Add a day 0 (maybe there's an event before the first day officially
+            /* Add a day 0 (maybe there's an event before the first day officially
 			 * starts?). Saw this in the CCC Fahrplan for example. */
             if (day.getTime().after(firstTime))
                 day.add(Calendar.DATE, -1);
@@ -310,7 +310,7 @@ public class Schedule {
                 loadDeox(in);
             } else if (head.contains("begin:vcalendar")) {
                 loadIcal(in);
-            } else if (head.contains("{") && head.contains("[")) {
+            } else if (head.contains("{")) {
                 loadJson(in);
             } else {
                 Log.d("head", head);
@@ -451,6 +451,7 @@ public class Schedule {
                 String startTimeS = event.getString("start_time");
                 String endTimeS = event.getString("end_time");
                 Date startTime, endTime;
+                Log.e("Title", title);
                 startTime = new Date(getTimeInMillis(startTimeS));
                 endTime = new Date(getTimeInMillis(endTimeS));
                 Schedule.Item item = new Schedule.Item(uid, title, startTime, endTime);
@@ -481,6 +482,11 @@ public class Schedule {
         DateTime = timeString.split("T");
         Date = DateTime[0].split("-");
         Time = DateTime[1].split(":");
+
+        if (Time[2].contains("+")) {
+            Time[2] = Time[2].substring(0, Time[2].indexOf('+'));
+        }
+        
         int year = Integer.parseInt(Date[0]);
         int month = Integer.parseInt(Date[1]);
         int date = Integer.parseInt(Date[2]);
