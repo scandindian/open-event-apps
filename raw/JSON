@@ -3,7 +3,7 @@
 	"schedules": [
 		{
 			"version": 2017040400,
-			"url": "https://www.opensouthcode.org/conferences/opensouthcode2017/schedule.xml",
+			"url": "https://raw.githubusercontent.com/heysadboy/open-event-giggity/master/samples/fossasia16",
 			"title": "FOSSASIA 2016",
 			"start": "2016-08-10",
 			"end": "2016-08-12",
