@@ -2,21 +2,6 @@
 	"version": 2017060900,
 	"schedules": [
 		{
-			"version": 001,
-			"url": "https://open-event-dev.herokuapp.com/api/v1/events/266?include=sessions",
-			"title": "FOSSASIA 2016",
-			"start": "2016-08-10",
-			"end": "2016-08-12",
-			"metadata": {
-				"links": [
-					{
-						"url": "http://fossasia.org",
-						"title": "Website"
-					}
-				]
-			}
-		},
-		{
 			"version": 002,
 			"url": "http://www.tuebix.org/2017/giggity.xml",
 			"title": "TUEBIX 2017",
