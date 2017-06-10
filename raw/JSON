@@ -3,7 +3,7 @@
 	"schedules": [
 		{
 			"version": 001,
-			"url": "https://raw.githubusercontent.com/heysadboy/open-event-giggity/master/samples/fossasia16",
+			"url": "https://open-event-dev.herokuapp.com/api/v1/events/266?include=sessions",
 			"title": "FOSSASIA 2016",
 			"start": "2016-08-10",
 			"end": "2016-08-12",

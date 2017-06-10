@@ -124,7 +124,7 @@ public class Schedule {
     @Deprecated
     static String rewrap(String desc) {
         /* Replace newlines with spaces unless there are two of them,
-		 * or if the following line starts with a character. */
+         * or if the following line starts with a character. */
         if (desc != null)
             return desc.replace("\r", "").replaceAll("([^\n]) *\n *([a-zA-Z0-9])", "$1 $2");
         else
@@ -437,8 +437,13 @@ public class Schedule {
         }
         String output = buffer.toString();
         Schedule.Line line = null;
+
+
         try {
-            JSONArray events = new JSONArray(output);
+
+            JSONObject conference = new JSONObject(output);
+            title = conference.getString("name");
+            JSONArray events = conference.getJSONArray("sessions");
             for (int i = 0; i < events.length(); i++) {
                 JSONObject event = events.getJSONObject(i);
                 String uid = event.getString("id");
