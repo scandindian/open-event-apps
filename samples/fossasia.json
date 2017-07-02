@@ -1,0 +1,96 @@
+{
+    "identifier": "e4a55e79", 
+    "name": "FOSSASIA 2016", 
+    "latitude": 1.346, 
+    "longitude": 103.686, 
+    "location-name": "15 Science Centre Rd, Singapore 609081", 
+    "starts-at": "2017-06-05T14:42:19+05:00", 
+    "ends-at": "2017-06-05T14:42:19+05:00", 
+    "timezone": "Asia/Singapore", 
+    "description": "FOSSASIA is the premier Free and Open Source technology ...", 
+    "logo-url": "/images/fossasia-dark.png", 
+    "organizer-name": "FOSSASIA", 
+    "organizer-description": "The Internet of Things for Me at Asia's Premier Open Technology Event", 
+    "social-links": [
+        {
+            "id": 1, 
+            "link": "https://twitter.com/fossasia", 
+            "name": "Twitter"
+        }
+    ], 
+    "ticket-url": "http://www.eventnook.com/event/fossasia", 
+    "privacy": "public", 
+    "type": "Conference", 
+    "topic": "Science & Technology", 
+    "sub-topic": null, 
+    "code-of-conduct": null, 
+    "copyright": {
+        "holder": "FOSSASIA", 
+        "holder-url": "http://fossasia.org/contact/", 
+        "licence": "Creative Commons Attribution License", 
+        "licence-url": "http://creativecommons.org/licenses/by/4.0/", 
+        "logo": "https://i.creativecommons.org/l/by/4.0/80x15.png", 
+        "year": 2016
+    }, 
+    "call-for-papers": {
+        "announcement": "<p>Wanna speak at our prestigious event. Send us a proposal</p>", 
+        "starts-at": "2016-03-16T20:30:00+05:00", 
+        "privacy": "public", 
+        "ends-at": "2016-03-10T19:30:00+05:00"
+    }, 
+    "email": "contact@fossasia.org", 
+    "has-session-speakers": true, 
+    "schedule-published-on": "2017-06-05T14:42:19+05:00", 
+    "searchable-location-name": null, 
+    "state": "Completed"
+    ,
+    "microlocations": [
+        {
+            "id": 1, 
+            "name": "Dalton Hall", 
+            "floor": 1, 
+            "latitude": 1.333169, 
+            "longitude": 103.735516, 
+            "room": null
+        }
+    ]
+    ,
+    "sessions":[
+        {
+            "id": 1, 
+            "title": "Grand Opening", 
+            "subtitle": null, 
+            "short-abstract": "Short Abstract for the event", 
+            "long-abstract": "Welcome to the 8th year of FOSSASIA. A friendly community of Open Technologists meets at the Science Centre Singapore.", 
+            "starts-at": "2016-03-18T09:30:00+05:30", 
+            "ends-at": "2016-03-18T10:00:00+05:30", 
+            "session-type": {
+                "id": 1, 
+                "length": 0.3, 
+                "name": "Welcome"
+            }, 
+            "track": {
+                "id": 1, 
+                "name": "OpenTech and IoT"
+            }, 
+            "comments": null, 
+            "language": null, 
+            "slides": null, 
+            "audio": null, 
+            "video": null, 
+            "microlocation": {
+                "id": 1, 
+                "name": "Dalton Hall"
+            }, 
+            "signup-url": null, 
+            "speakers": [
+                {
+                    "id": 1, 
+                    "name": "Hong Phuc Dang", 
+                    "organisation": "FOSSASIA"
+                }
+            ], 
+            "state": "accepted"
+        }
+    ]
+}
