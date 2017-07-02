@@ -42,8 +42,7 @@
     "has-session-speakers": true, 
     "schedule-published-on": "2017-06-05T14:42:19+05:00", 
     "searchable-location-name": null, 
-    "state": "Completed"
-    ,
+    "state": "Completed",
     "microlocations": [
         {
             "id": 1, 
@@ -53,8 +52,7 @@
             "longitude": 103.735516, 
             "room": null
         }
-    ]
-    ,
+    ],
     "sessions":[
         {
             "id": 1, 
