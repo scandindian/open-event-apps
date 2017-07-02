@@ -8,7 +8,7 @@
     "ends-at": "2017-06-05T14:42:19+05:00", 
     "timezone": "Asia/Singapore", 
     "description": "FOSSASIA is the premier Free and Open Source technology ...", 
-    "logo-url": "/images/fossasia-dark.png", 
+    "logo-url": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16/images/fossasia-dark.png", 
     "organizer-name": "FOSSASIA", 
     "organizer-description": "The Internet of Things for Me at Asia's Premier Open Technology Event", 
     "social-links": [
