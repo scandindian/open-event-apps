@@ -10,5 +10,5 @@ List of apps to be modified to support open event format and how to use them
   1. You can test the app by pasting this link https://raw.githubusercontent.com/heysadboy/open-event-apps/master/samples/googleio2017.json for Google I/O event. Click the logo button in the toolbar to use this option. When you use the app for first time it appears automatically.
   2. Find the modified version here https://github.com/fossasia/giggity
 
-- Connfa
-  1. Find the app here https://github.com/heysadboy/connfa-android    
+- Connfa - In progress
+  1. Find the app here https://github.com/fossasia/connfa-android   
