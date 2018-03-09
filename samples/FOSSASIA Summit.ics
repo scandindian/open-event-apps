@@ -1,6 +1,6 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-
+X-WR-CALNAME : FOSSASIA 2018 
 BEGIN:VEVENT
 UID:796b8adf-ff78-495c-834f-d3932c852302
 CLASS:PUBLIC
@@ -48,7 +48,7 @@ DESCRIPTION:<p>We will explore examples of business that have adopted TensorFlow
 DTSTART;VALUE=DATETIME:20180322T135000
 DTEND;VALUE=DATE:20180322T141500
 LOCATION:Lecture Theatre
-SUMMARY;LANGUAGE=en-us:Real-world Machine Learning with TensorFlow and Cloud ML	
+SUMMARY;LANGUAGE=en-us:Real-world Machine Learning with TensorFlow and Cloud ML
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
@@ -114,11 +114,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:03c8ac01-daab-4d97-b9a3-654bb76ef9a4
 CLASS:PUBLIC
-DESCRIPTION:<p>The workshop will cover how to setup and create scientific experiments with the FOSSASIA PSLab or use it to measure electronic conditions in hardware prototypes. The Open Source Pocket Science Lab can 
-be used through the desktop and phones. It combines different devices including an 
-Oscilloscope, a voltmeter and several sensors. It is useful for 
+DESCRIPTION:<p>The workshop will cover how to setup and create scientific experiments with the FOSSASIA PSLab or use it to measure electronic conditions in hardware prototypes. The Open Source Pocket Science Lab can
+be used through the desktop and phones. It combines different devices including an
+Oscilloscope, a voltmeter and several sensors. It is useful for
 startups, hobbyists and the educational sector. You can measure currents
- and all kinds of electronic devices and connections with the PSLab. 
+ and all kinds of electronic devices and connections with the PSLab.
 Check your prototypes or do all kinds of electronic experiments.</p>
 DTSTART;VALUE=DATETIME:20180322T160000
 DTEND;VALUE=DATE:20180322T175500
@@ -293,7 +293,7 @@ DESCRIPTION:<p><span style="">Join this session to see how you can build IoT dev
 DTSTART;VALUE=DATETIME:20180323T144000
 DTEND;VALUE=DATE:20180323T152000
 LOCATION:Lecture Theatre
-SUMMARY;LANGUAGE=en-us:Engaging IoT solutions with Machine Learning	
+SUMMARY;LANGUAGE=en-us:Engaging IoT solutions with Machine Learning
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
@@ -532,7 +532,7 @@ DESCRIPTION:<p>Google Summer of Code and Google Code-In </p>
 DTSTART;VALUE=DATETIME:20180324T103000
 DTEND;VALUE=DATE:20180324T105500
 LOCATION:Event Hall 2-2
-SUMMARY;LANGUAGE=en-us:Google Summer of Code and Google Code-In 
+SUMMARY;LANGUAGE=en-us:Google Summer of Code and Google Code-In
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
@@ -552,7 +552,7 @@ DESCRIPTION:<p>TBA</p>
 DTSTART;VALUE=DATETIME:20180324T103000
 DTEND;VALUE=DATE:20180324T111000
 LOCATION:Lecture Theatre
-SUMMARY;LANGUAGE=en-us:Zero to ML on Google Cloud Platform	
+SUMMARY;LANGUAGE=en-us:Zero to ML on Google Cloud Platform
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
@@ -572,7 +572,7 @@ DESCRIPTION:<p>It has recently become possible to build an AI system with crypto
 DTSTART;VALUE=DATETIME:20180324T105000
 DTEND;VALUE=DATE:20180324T111500
 LOCATION:Event Hall 2-1
-SUMMARY;LANGUAGE=en-us:Decentralized AI: how to build secure, private and decentralized AI systems with blockchain 
+SUMMARY;LANGUAGE=en-us:Decentralized AI: how to build secure, private and decentralized AI systems with blockchain
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
@@ -582,7 +582,7 @@ DESCRIPTION:<p>We are students from UWCSEA and we are the leaders of a group cal
 DTSTART;VALUE=DATETIME:20180324T105500
 DTEND;VALUE=DATE:20180324T110500
 LOCATION:Training room 4-1
-SUMMARY;LANGUAGE=en-us:Ethical Hacking 
+SUMMARY;LANGUAGE=en-us:Ethical Hacking
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
@@ -793,7 +793,7 @@ DESCRIPTION:<p>TBA</p>
 DTSTART;VALUE=DATETIME:20180324T133000
 DTEND;VALUE=DATE:20180324T135500
 LOCATION:Lecture Theatre
-SUMMARY;LANGUAGE=en-us:Daimler's OS Strategy 
+SUMMARY;LANGUAGE=en-us:Daimler's OS Strategy
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
@@ -924,7 +924,7 @@ DESCRIPTION:Biohacking is a new field of citizen science in which individuals ex
 DTSTART;VALUE=DATETIME:20180324T143000
 DTEND;VALUE=DATE:20180324T144000
 LOCATION:Event Hall 2-2
-SUMMARY;LANGUAGE=en-us:Biohacking democratizing biology through tech. 
+SUMMARY;LANGUAGE=en-us:Biohacking democratizing biology through tech.
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
@@ -1257,9 +1257,9 @@ END:VEVENT
 BEGIN:VEVENT
 UID:c6b667ca-b365-43fc-a332-f2951a268380
 CLASS:PUBLIC
-DESCRIPTION:<p>OAuth is a way of telling your Social Provider like Facebook. that they can share parts of your information (not everything) with other websites, without revealing your super duper secret password to these other websites. In other words, it's a way of providing permission which also includes authentication.</p><p>As Google Summer Of Project, I implemented OAuth2 Library "The League OAuth2" in modules of Drupal Social Initiative. We also released 2.x Version of these modules, which had streamlined authentication system, easily to implemented and were more secure. </p><p>This talk will be based on why you should use protocol standards such as OAuth2 over traditional login based approach.</p><p></p>  
+DESCRIPTION:<p>OAuth is a way of telling your Social Provider like Facebook. that they can share parts of your information (not everything) with other websites, without revealing your super duper secret password to these other websites. In other words, it's a way of providing permission which also includes authentication.</p><p>As Google Summer Of Project, I implemented OAuth2 Library "The League OAuth2" in modules of Drupal Social Initiative. We also released 2.x Version of these modules, which had streamlined authentication system, easily to implemented and were more secure. </p><p>This talk will be based on why you should use protocol standards such as OAuth2 over traditional login based approach.</p><p></p>
 
-  
+
   <p></p>
 DTSTART;VALUE=DATETIME:20180324T170000
 DTEND;VALUE=DATE:20180324T172500
@@ -1327,7 +1327,7 @@ coin currency in the domain of cryptocurrency.</span></p>
 DTSTART;VALUE=DATETIME:20180324T173000
 DTEND;VALUE=DATE:20180324T175500
 LOCATION:Event Hall 2-1
-SUMMARY;LANGUAGE=en-us:Understanding Bitcoins: Perceptions and Islamic Perspective 
+SUMMARY;LANGUAGE=en-us:Understanding Bitcoins: Perceptions and Islamic Perspective
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
@@ -1413,17 +1413,17 @@ END:VEVENT
 BEGIN:VEVENT
 UID:af33934e-748f-4083-8a90-b5e1190bd35e
 CLASS:PUBLIC
-DESCRIPTION:<p>I've wanted to build a small cloud at home for some time, mostly to 
-serve as a testbed for my development projects. But also as a 
-platform to virtualize my growing home infrastructure. So I allocated a 
-budget of ~$1500 USD (the price of my first desktop computer) and set 
-out to build a cloud using OpenStack. OpenStack is an open source cloud ecosystem designed to provide users 
-with programmable open infrastructure. It  is used to power some massive private cloud deployments. But, how does it work for 
-an individual wanting to deploy a cloud with their own resources? This talk will provide an overview of my experience building a small 
-compute cloud from scratch, on essentially a shoestring budget; from 
-hardware acquisition, through installation and configuration of the 
+DESCRIPTION:<p>I've wanted to build a small cloud at home for some time, mostly to
+serve as a testbed for my development projects. But also as a
+platform to virtualize my growing home infrastructure. So I allocated a
+budget of ~$1500 USD (the price of my first desktop computer) and set
+out to build a cloud using OpenStack. OpenStack is an open source cloud ecosystem designed to provide users
+with programmable open infrastructure. It  is used to power some massive private cloud deployments. But, how does it work for
+an individual wanting to deploy a cloud with their own resources? This talk will provide an overview of my experience building a small
+compute cloud from scratch, on essentially a shoestring budget; from
+hardware acquisition, through installation and configuration of the
 cloud, to my use cases for the cloud. This will serve as an introduction
- to OpenStack and getting started with it and will also cover the potential benefits you can get by having your 
+ to OpenStack and getting started with it and will also cover the potential benefits you can get by having your
 own cloud at home.</p>
 DTSTART;VALUE=DATETIME:20180325T100000
 DTEND;VALUE=DATE:20180325T102500
@@ -1691,18 +1691,18 @@ END:VEVENT
 BEGIN:VEVENT
 UID:e23b613f-2e06-4511-a533-5ce539175e63
 CLASS:PUBLIC
-DESCRIPTION:<p>Performing periodic backups in computer networks is indispensable. In 
-times of Locky and other ransomware backups are often the only option 
-left to regain access to your data. Nevertheless, for backups to be 
+DESCRIPTION:<p>Performing periodic backups in computer networks is indispensable. In
+times of Locky and other ransomware backups are often the only option
+left to regain access to your data. Nevertheless, for backups to be
 effective against these types of threats, a number of aspects have to be
  considered.</p><p>This presentation shows how to use the open source backup solution Bareos, to regularly create backups of your systems in a heterogeneous network.</p><p>Bareos (Backup Archiving Recovery Open Sourced) is a reliable network
- open source software to backup, archive and restore files from all 
-major operating systems. The fork was founded 2010 out of the 
-<a href="http://bacula.org" rel="nofollow" target="_blank">bacula.org</a> project, in order to pursue development of new capabilities 
-and sustainable ensure it’s open source character.Today Bareos 
-comes with a new multi-lingual and multi-tenancy web ui including 
+ open source software to backup, archive and restore files from all
+major operating systems. The fork was founded 2010 out of the
+<a href="http://bacula.org" rel="nofollow" target="_blank">bacula.org</a> project, in order to pursue development of new capabilities
+and sustainable ensure it’s open source character.Today Bareos
+comes with a new multi-lingual and multi-tenancy web ui including
 restore browser,  LTO hardware encryption support, bandwidth limitation,
- cloud storage support, a redesigned plugin interface, among other new 
+ cloud storage support, a redesigned plugin interface, among other new
 features.
 
 </p><p>
@@ -1713,7 +1713,7 @@ Today Bareos is the only 100% open source backup solution with professional subs
 DTSTART;VALUE=DATETIME:20180325T110000
 DTEND;VALUE=DATE:20180325T112500
 LOCATION:Training room 2-2
-SUMMARY;LANGUAGE=en-us:Don't let them take you hostage - be prepared by open source backups 
+SUMMARY;LANGUAGE=en-us:Don't let them take you hostage - be prepared by open source backups
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
@@ -1851,7 +1851,7 @@ DESCRIPTION:<p>Introduction to IoT world with Google technologies</p>
 DTSTART;VALUE=DATETIME:20180325T113000
 DTEND;VALUE=DATE:20180325T121000
 LOCATION:Event Hall 2-2
-SUMMARY;LANGUAGE=en-us:What is Android Things	
+SUMMARY;LANGUAGE=en-us:What is Android Things
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
@@ -1917,13 +1917,13 @@ END:VEVENT
 BEGIN:VEVENT
 UID:e46afa22-3645-4074-a291-71c4e17f5c08
 CLASS:PUBLIC
-DESCRIPTION:<p>There are substantial improvements in the Optimizer in MySQL 8.0. Most 
-noticeably, there’s added support for advanced SQL features such as 
-common table expressions, windowing functions, and a grouping() 
+DESCRIPTION:<p>There are substantial improvements in the Optimizer in MySQL 8.0. Most
+noticeably, there’s added support for advanced SQL features such as
+common table expressions, windowing functions, and a grouping()
 function. DBAs will also appreciate the invisible indexes and additional
- hints that can be used with the query rewrite plugin. On the 
-performance side, cost model changes will make a huge impact. JSON 
-support is even more powerful, with the addition of adding functions 
+ hints that can be used with the query rewrite plugin. On the
+performance side, cost model changes will make a huge impact. JSON
+support is even more powerful, with the addition of adding functions
 requested by users.</p>
 DTSTART;VALUE=DATETIME:20180325T130000
 DTEND;VALUE=DATE:20180325T132500
@@ -2079,17 +2079,17 @@ END:VEVENT
 BEGIN:VEVENT
 UID:6f2829db-be45-4187-b0bc-aac2eb17b948
 CLASS:PUBLIC
-DESCRIPTION:<p>Most of the people really like GUI, WebUI, smartphone application such as Thunderbird, Gerrit, Slack, etc. I think 
-they are really fancy and cool. However, it sometimes requires 
-complicated operation with a mouse, swipe and taps. Moreover, it's a bit difficult to tell how to operate to the others. To do so, we need a lot of 
-screenshots of that application. It makes our productivity low. So, instead of that, there are a lot of CUI/CLI 
-tools as alternatives. They are really simple but powerful and fast. In 
-this session, audience can see the benefit of CUI/CLI tools. And, as a 
-developer, making a fancy GUI application is really hard. We actually have a lot of options not only using GUI applications 
+DESCRIPTION:<p>Most of the people really like GUI, WebUI, smartphone application such as Thunderbird, Gerrit, Slack, etc. I think
+they are really fancy and cool. However, it sometimes requires
+complicated operation with a mouse, swipe and taps. Moreover, it's a bit difficult to tell how to operate to the others. To do so, we need a lot of
+screenshots of that application. It makes our productivity low. So, instead of that, there are a lot of CUI/CLI
+tools as alternatives. They are really simple but powerful and fast. In
+this session, audience can see the benefit of CUI/CLI tools. And, as a
+developer, making a fancy GUI application is really hard. We actually have a lot of options not only using GUI applications
 but also CUI/CLI ones.
 
-I really love CUI/CLI applications recently. Because it's simple, fast, 
-lightweight and can be operated with only a keyboard not mouse. In this 
+I really love CUI/CLI applications recently. Because it's simple, fast,
+lightweight and can be operated with only a keyboard not mouse. In this
 talk, I'll give some example GUI and CUI/CLI apps and talk about its pros/cons.</p><p></p>
 DTSTART;VALUE=DATETIME:20180325T135000
 DTEND;VALUE=DATE:20180325T140900
@@ -2144,7 +2144,7 @@ DESCRIPTION:<p><span style="">Apache PredictionIO is an open source Machine Lear
 DTSTART;VALUE=DATETIME:20180325T140000
 DTEND;VALUE=DATE:20180325T142500
 LOCATION:Lecture Theatre
-SUMMARY;LANGUAGE=en-us:Building Machine learning applications using PredictionIO 
+SUMMARY;LANGUAGE=en-us:Building Machine learning applications using PredictionIO
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
@@ -2171,12 +2171,12 @@ BEGIN:VEVENT
 UID:ba7e5118-6d43-4250-ab27-efc806f59822
 CLASS:PUBLIC
 DESCRIPTION:<b><u></u></b>How do you mix SQL and NoSQL worlds without starting a messy revolution?This
- live coding talk will show you how to add Elasticsearch to your legacy 
-application without changing all your current development habits. Your 
-application will have suddenly have advanced search features, all 
-without the need to write complex SQL code!Aravind will start 
-from a RestX, Hibernate and Postgresql/MySQL based application and will 
-add a complete integration of Elasticsearch, all live from the stage 
+ live coding talk will show you how to add Elasticsearch to your legacy
+application without changing all your current development habits. Your
+application will have suddenly have advanced search features, all
+without the need to write complex SQL code!Aravind will start
+from a RestX, Hibernate and Postgresql/MySQL based application and will
+add a complete integration of Elasticsearch, all live from the stage
 during his presentation.<span style="font-weight: bold;"><span style="font-weight: 400;"></span></span><span style="font-weight: bold;"><span style="font-weight: 400;"><span style="">1. </span><a href="https://github.com/" rel="nofollow" target="_blank">https://github.com/</a><span>elastic</span>/elasticsearch<span style="">
 2. </span><a href="https://github.com/" rel="nofollow" target="_blank">https://github.com/</a><span>elastic</span>/logstash<span style="">
 3. </span><a href="https://github.com/" rel="nofollow" target="_blank">https://github.com/</a><span>elastic</span>/kibana<span style="">
@@ -2190,13 +2190,13 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cddd5626-cebe-4a05-96f2-64b3cebe40b8
 CLASS:PUBLIC
-DESCRIPTION:<p>Kubernetes(k8s) is the most popular and famous container orchestration 
-software these days. And we can use it through Kubernetes as a Services such as GKE, 
-EKS, etc on public clouds. However, I love FOSS! So, I'd like to use it on my machine (I call this my "private" cloud) as possible :) Fortunately, there are so many k8s FOSS cluster 
-management/deployment tools recently such as OpenStack Magnum, 
-Mesos DC/OS, Rancher, etc.. We can use them as alternatives.</p><p>In 
-this talk, attendees will get to know "what is Kubernetes?", "how do we 
-deploy it?", "What's the difference between the k8s FOSS management 
+DESCRIPTION:<p>Kubernetes(k8s) is the most popular and famous container orchestration
+software these days. And we can use it through Kubernetes as a Services such as GKE,
+EKS, etc on public clouds. However, I love FOSS! So, I'd like to use it on my machine (I call this my "private" cloud) as possible :) Fortunately, there are so many k8s FOSS cluster
+management/deployment tools recently such as OpenStack Magnum,
+Mesos DC/OS, Rancher, etc.. We can use them as alternatives.</p><p>In
+this talk, attendees will get to know "what is Kubernetes?", "how do we
+deploy it?", "What's the difference between the k8s FOSS management
 tools?" and their pros and cons.</p>
 DTSTART;VALUE=DATETIME:20180325T141000
 DTEND;VALUE=DATE:20180325T143000
@@ -2211,7 +2211,7 @@ DESCRIPTION:<p>This is the technical continuation of a talk given at Geekcamp 20
 DTSTART;VALUE=DATETIME:20180325T143000
 DTEND;VALUE=DATE:20180325T145500
 LOCATION:Event Hall 2-1
-SUMMARY;LANGUAGE=en-us:Deep Speech and it's application in developing nations 
+SUMMARY;LANGUAGE=en-us:Deep Speech and it's application in developing nations
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
@@ -2258,9 +2258,9 @@ BEGIN:VEVENT
 UID:88438459-15b3-4f92-b3ac-4681c487b812
 CLASS:PUBLIC
 DESCRIPTION:I worked on implementing collaborative editing using Operational Transformation algorithm with Typeset in my summers internship 2017. <p>There are various papers on both the methods of implementing collaborative editing : <strong>Operational Transformation</strong>, which goes back to 1989, when it was first implemented by the GROVE (GRoup Outtie Viewing Editor) system (this algorithm is quite old, and Google uses this algorithm for collaborative editing for Google Docs, Google Slides, Wave, etc) and <strong>Conflict-Free Replicated Data Types</strong>, which is a much newer approach to real-time editing.</p><p></p>Real challenge of collaborative editing<p></p><p>If you know how real-time collaborative editing works, then you may know that handling concurrent editing in multi-user environment gracefully is very challenging. However, a few simple concepts can simplify this problem. The main challenge, as mentioned, with collaborative editing is the concurrency control [<strong>concurrent edits</strong>] to the document are not commutative. This needs to be causally ordered before applying either by undoing history or by transforming the operations [<strong>operational transformation</strong>] before applying them to make them seem commutative.</p><p></p>Bringing Latency into action<p></p><p>Introducing latency between the client and server is where the problems arise. Latency in a <span>collaborative</span> editor introduces the possibility of version conflicts. Here, where, I said Operational Transformation will come into action.</p><p></p><p>Let’s take an example :</p><p></p><p><strong>Starting Client’s state :</strong></p><p></p><p>ABCD</p><p></p><p><strong>Starting Server’s state :</strong></p><p></p><p>ABCD</p><p></p><p>Now, let’s say, <em>Client</em> enters X in between C and D , the operation would look something like this :</p><p></p><p>insert(X,3) //where 3 is the position where x is going to be added (0=A, 1=B, 2=C ..)</p><p></p><p>And at the same time, <em>Server</em> deletes,b the operation would be :</p><p></p><p>delete(B,1)</p><p></p><p>What actually should happen is that the client and server should both end with ACXD but in reality, <em>client</em> ends with ACXD</p><p></p>Starting Document State -&gt; ABCD"Insert 'X'" operation at offset 3 [local] -&gt; ABCXD"Delete 'B'" operation at offset 1 [remote] -&gt; ACXD<p></p><p>but the <em>server</em> ends with acdx.</p><p></p>Starting Document State -&gt; ABCD"Delete 'B'" operation at offset 1 [local] -&gt; ACD"Insert 'X'" operation at offset 3 [remote] -&gt; ACDX<p></p><p>Of course, ACXD != ACDX and the document which is shared now is in the wrong state.</p><p></p><p>Here is where the <strong>Operational Transformation</strong> algorithm comes to the rescue.</p><p></p>Operational Transformation Algorithm<p></p><p>Operational Transformation (OT) is an algorithm/technique for the transformation of operations such that they can be applied to documents whose states have diverged, bringing them both back to the same state.</p><p></p>How does Operational Transformation work?<p></p><p>A short overview of how OT works :</p><p></p><ul><li>Every change (insertion or deletion) is represented as an <strong>operation</strong>. An operation can be applied to the current document which results into a new document state.</li><li>To handle concurrent operations, we use the <strong>tranform</strong> function that takes two operations that have been applied to the same document state (but on different clients) and computes a new operation that can be applied after the second operation and that preserves the first operation’s intended change.</li></ul><p></p><p>Let’s apply Operational Transformation in the original example.</p><p></p><p>If we apply OT, <em>Client</em> will see :</p><p></p>Starting Document State -&gt; ABCD"Insert 'X'" operation at offset 3 [local] -&gt; ABCXD"Delete 'B'" operation at offset 1 [transformed] -&gt; ACXD<p></p><p>and <em>Server</em> will see :</p><p></p>Starting Document State -&gt; ABCD"Delete 'B'" operation at offset 1 [local] -&gt; ACD"Insert 'X'" operation at offset 2 [transformed] -&gt; ACXD //Transform function would add add it in the new (3 - 1 = 2) position<p></p>Client — Server [OT] Approach to Collaborative Editing<p>The <strong>transform</strong> function is used to build a client-server protocol that can handle collaboration between any number of clients.</p><p>Choosing a Client-Server architecture will allow scouting a large number of clients without actually complicating the environment. Also, there will be a single system which holds the source of truth i.e. the server, so even if the clients crash/go offline for a long time, we can go back to the server and fetch the document easily.</p><p>This source of truth also forces the client to wait for the server to <strong>acknowledge</strong> the operation that the client has just sent which would mean that the client always stays on the server’s OT path. This would help in keeping a single history of operations without actually having to keep a mirror of the state for each client that is connected. That would eventually mean the number of clients that are connected to the server would have only one single copy of the document on the server.</p><p></p>Conclusion<p></p><p><strong>Operational Transformation</strong>
- is a very powerful tool that allows to build great collaborative apps 
-with support for non-blocking concurrent editing. I am looking forward 
-to dive deep into the algorithm (and ofcourse extending this blogpost) 
+ is a very powerful tool that allows to build great collaborative apps
+with support for non-blocking concurrent editing. I am looking forward
+to dive deep into the algorithm (and ofcourse extending this blogpost)
 and possibly working on an editor which supports it as well.</p><p></p>
 DTSTART;VALUE=DATETIME:20180325T143000
 DTEND;VALUE=DATE:20180325T145500
@@ -2305,43 +2305,43 @@ shutdown and while the server is running. MySQL initially supported
 error logging to the file system. In MySQL-5.7 support for error
 logging to Windows  eventlog and Unix system log are added. To
 support new log service, every time MySQL server code had to be
-changed.                                                             
-          
+changed.
+
 </p><p style="">For each error log event, severity
 (ERROR, warning or note) is assigned and submitted a error message. A
 line of error message text is helpful to humans but opaque to
-machines.                                                           
+machines.
 </p><p style="">At present, errors can be suppressed
 based on the error severity (using --log-error-verbosity) but very
-few filtering options are available.                                 
-                                                                     
-            
+few filtering options are available.
+
+
 </p><p style="">MySQL 8.0 has removed these limitations
-with the Improved Error Logging Mechanism.                           
-                                                                     
-        
+with the Improved Error Logging Mechanism.
+
+
 </p><p style="">This talk would
-cover following points:                                              
-           
+cover following points:
+
 </p><p style="">---------------------------------------------------------------</p><p style="">* Introduction to
-error logging.                                 
+error logging.
 </p><p style="">* New error logging
-framework in the MySQL 8.0.                  
-</p><p style="">       "Loadable/Pluggable error loggers"                         
-   
+framework in the MySQL 8.0.
+</p><p style="">       "Loadable/Pluggable error loggers"
+
 </p><p style="">* New API's to log
-error messages.                               
+error messages.
 </p><p style="">        In MySQL
-8.0, error message events are more granular/richer. 
+8.0, error message events are more granular/richer.
 </p><p style="">        New API's
-are introduced to log error messages.              
+are introduced to log error messages.
 </p><p style="">* Improvements to
 the traditional error log message line.* New Rule based
 error log filtering engine.  </p>
 DTSTART;VALUE=DATETIME:20180325T143000
 DTEND;VALUE=DATE:20180325T145500
 LOCATION:Training room 2-1
-SUMMARY;LANGUAGE=en-us:Improved Error Logging in MySQL 8.0  
+SUMMARY;LANGUAGE=en-us:Improved Error Logging in MySQL 8.0
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
@@ -2378,29 +2378,29 @@ BEGIN:VEVENT
 UID:085dc728-7fd0-490f-834a-a3690bfc8ddb
 CLASS:PUBLIC
 DESCRIPTION:<p>MySQL Group Replication is a highly-available, fault-tolerant
-          system for MySQL 
+          system for MySQL
           with built-in conflict detection and resolution, automatic
-          distributed recovery, 
+          distributed recovery,
           and group membership, which operate in single and multi
-          primary replication 
+          primary replication
           topologies. The MySQL Group Replication has gone through an
-          amazing journey so 
+          amazing journey so
           far, and the current MySQL 8.0 has included a lot of customer
-          requested features 
-          which has improved the Group Replication experience further. 
-          
+          requested features
+          which has improved the Group Replication experience further.
+
           This talk will take the audience through the journey of MySQL
-          Group Replication 
+          Group Replication
           development from its first labs release to the recent MySQL
-          8.0 RC1 release, 
+          8.0 RC1 release,
           discussing important features like changes in the Group
-          Replication 
+          Replication
           architecture, different operating replication modes, parallel
-          replication 
+          replication
           applier, and monitoring support though performance schema
-          tables. 
+          tables.
           The main focus of this talk would be on recent MySQL 8.0
-          features, especially 
+          features, especially
           new customer requested features.</p>
 DTSTART;VALUE=DATETIME:20180325T150000
 DTEND;VALUE=DATE:20180325T152500
@@ -2478,7 +2478,7 @@ DESCRIPTION:<p>XA stands for “eXtended Architecture”, and is a standard
     themselves could be other MySQL servers, or even different database technologies. MySQL 5.0
     introduced XA support, thus adding the ability to participate in global transactions. MySQL 5.7 has removed
     major limitations in the XA transaction recovery mechanism and binary logging mechanism.
-    
+
     This talk would cover the following points:
     * What is XA?
     * How does MySQL support the XA standard?
